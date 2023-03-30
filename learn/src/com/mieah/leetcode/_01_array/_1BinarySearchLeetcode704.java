@@ -14,11 +14,11 @@ public class _1BinarySearchLeetcode704 {
             return nums[0] == target ? 0 : -1;
         }
         int leftIndex = 0;
-        int rightIndex = nums.length - 1;
+        int rightIndex = nums.length;
         while (rightIndex > leftIndex) {
-            int middleIndex = (leftIndex + rightIndex) / 2;
+            int middleIndex = leftIndex + rightIndex >> 1;
             if (nums[middleIndex] > target) {
-                rightIndex = middleIndex - 1;
+                rightIndex = middleIndex;
             } else if (nums[middleIndex] < target) {
                 leftIndex = middleIndex + 1;
             } else {
@@ -32,11 +32,11 @@ public class _1BinarySearchLeetcode704 {
         int leftIndex = 0;
         int rightIndex = nums.length - 1;
         while (rightIndex >= leftIndex) {
-            int middleIndex = leftIndex + ((rightIndex - leftIndex) >> 1);
+            int middleIndex = leftIndex + rightIndex >> 1;
             if (nums[middleIndex] > target) {
-                rightIndex = middleIndex -1;
+                rightIndex = middleIndex - 1;
             } else if (nums[middleIndex] < target) {
-                leftIndex = middleIndex +1;
+                leftIndex = middleIndex + 1;
             } else {
                 return middleIndex;
             }
